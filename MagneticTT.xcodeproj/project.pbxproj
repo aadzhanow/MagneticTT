@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		743CA98D2BB9CF80009465B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA98C2BB9CF80009465B3 /* AppDelegate.swift */; };
 		743CA98F2BB9CF80009465B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA98E2BB9CF80009465B3 /* SceneDelegate.swift */; };
-		743CA9912BB9CF80009465B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9902BB9CF80009465B3 /* ViewController.swift */; };
+		743CA9912BB9CF80009465B3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9902BB9CF80009465B3 /* MainViewController.swift */; };
 		743CA9962BB9CF81009465B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9952BB9CF81009465B3 /* Assets.xcassets */; };
 		743CA9992BB9CF81009465B3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9982BB9CF81009465B3 /* Base */; };
 		743CA9A82BB9D0F5009465B3 /* UserInterface.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9A72BB9D0F5009465B3 /* UserInterface.xcstrings */; };
@@ -21,13 +21,27 @@
 		743CA9BC2BB9DB14009465B3 /* SF-Pro-Text-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9B82BB9DB14009465B3 /* SF-Pro-Text-Medium.ttf */; };
 		743CA9BD2BB9DB14009465B3 /* SF-Pro-Text-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9B92BB9DB14009465B3 /* SF-Pro-Text-Regular.ttf */; };
 		743CA9BE2BB9DB14009465B3 /* SF-Pro-Text-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9BA2BB9DB14009465B3 /* SF-Pro-Text-Bold.ttf */; };
+		743CA9C12BB9DCCF009465B3 /* DoubleTapPreventer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9C02BB9DCCF009465B3 /* DoubleTapPreventer.swift */; };
+		743CA9C52BB9DDAF009465B3 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9C42BB9DDAF009465B3 /* UIFont+CustomFonts.swift */; };
+		743CA9C72BB9DDC3009465B3 /* UINavigationController+PopGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9C62BB9DDC3009465B3 /* UINavigationController+PopGesture.swift */; };
+		743CA9CA2BB9DF8C009465B3 /* NetworkScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9C92BB9DF8C009465B3 /* NetworkScanViewController.swift */; };
+		743CA9CC2BB9DFBD009465B3 /* DeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9CB2BB9DFBD009465B3 /* DeviceListViewController.swift */; };
+		743CA9CE2BB9E001009465B3 /* CurrentWiFiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9CD2BB9E001009465B3 /* CurrentWiFiView.swift */; };
+		743CA9D22BB9E04B009465B3 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9D12BB9E04B009465B3 /* NavigationBarView.swift */; };
+		743CA9D52BB9E128009465B3 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9D42BB9E128009465B3 /* DeviceCell.swift */; };
+		743CA9D72BB9E13B009465B3 /* MenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9D62BB9E13B009465B3 /* MenuButtonCell.swift */; };
+		743CA9D92BB9E390009465B3 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9D82BB9E390009465B3 /* Assets.swift */; };
+		743CA9DB2BB9ECAA009465B3 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9DA2BB9ECAA009465B3 /* String+Localized.swift */; };
+		743CA9DD2BB9F286009465B3 /* UIButton+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9DC2BB9F286009465B3 /* UIButton+Animate.swift */; };
+		743CA9DF2BB9F388009465B3 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9DE2BB9F388009465B3 /* MainViewModel.swift */; };
+		743CA9E12BBA0B0D009465B3 /* UICollectionViewCell+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9E02BBA0B0D009465B3 /* UICollectionViewCell+Animate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		743CA9892BB9CF80009465B3 /* MagneticTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagneticTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		743CA98C2BB9CF80009465B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		743CA98E2BB9CF80009465B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		743CA9902BB9CF80009465B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		743CA9902BB9CF80009465B3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		743CA9952BB9CF81009465B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		743CA9982BB9CF81009465B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		743CA99A2BB9CF81009465B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,6 +52,20 @@
 		743CA9B82BB9DB14009465B3 /* SF-Pro-Text-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.ttf"; sourceTree = "<group>"; };
 		743CA9B92BB9DB14009465B3 /* SF-Pro-Text-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.ttf"; sourceTree = "<group>"; };
 		743CA9BA2BB9DB14009465B3 /* SF-Pro-Text-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.ttf"; sourceTree = "<group>"; };
+		743CA9C02BB9DCCF009465B3 /* DoubleTapPreventer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapPreventer.swift; sourceTree = "<group>"; };
+		743CA9C42BB9DDAF009465B3 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
+		743CA9C62BB9DDC3009465B3 /* UINavigationController+PopGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+PopGesture.swift"; sourceTree = "<group>"; };
+		743CA9C92BB9DF8C009465B3 /* NetworkScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkScanViewController.swift; sourceTree = "<group>"; };
+		743CA9CB2BB9DFBD009465B3 /* DeviceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewController.swift; sourceTree = "<group>"; };
+		743CA9CD2BB9E001009465B3 /* CurrentWiFiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWiFiView.swift; sourceTree = "<group>"; };
+		743CA9D12BB9E04B009465B3 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		743CA9D42BB9E128009465B3 /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
+		743CA9D62BB9E13B009465B3 /* MenuButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonCell.swift; sourceTree = "<group>"; };
+		743CA9D82BB9E390009465B3 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		743CA9DA2BB9ECAA009465B3 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		743CA9DC2BB9F286009465B3 /* UIButton+Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animate.swift"; sourceTree = "<group>"; };
+		743CA9DE2BB9F388009465B3 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		743CA9E02BBA0B0D009465B3 /* UICollectionViewCell+Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Animate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				743CA9A02BB9D072009465B3 /* Application */,
+				743CA9BF2BB9DCA8009465B3 /* Utilities */,
 				743CA9A12BB9D079009465B3 /* Source */,
 				743CA9A22BB9D07D009465B3 /* Resources */,
 			);
@@ -92,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				743CA9A52BB9D094009465B3 /* Common */,
+				743CA9D32BB9E0BB009465B3 /* Cells */,
 				743CA9A42BB9D090009465B3 /* Views */,
 				743CA9A92BB9D121009465B3 /* ViewModels */,
 				743CA9A32BB9D08A009465B3 /* ViewControllers */,
@@ -105,6 +135,7 @@
 				743CA9A62BB9D0AF009465B3 /* Animations */,
 				743CA9B22BB9DA3A009465B3 /* Fonts */,
 				743CA9952BB9CF81009465B3 /* Assets.xcassets */,
+				743CA9D82BB9E390009465B3 /* Assets.swift */,
 				743CA9972BB9CF81009465B3 /* LaunchScreen.storyboard */,
 				743CA9A72BB9D0F5009465B3 /* UserInterface.xcstrings */,
 				743CA99A2BB9CF81009465B3 /* Info.plist */,
@@ -115,7 +146,9 @@
 		743CA9A32BB9D08A009465B3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				743CA9902BB9CF80009465B3 /* ViewController.swift */,
+				743CA9902BB9CF80009465B3 /* MainViewController.swift */,
+				743CA9C92BB9DF8C009465B3 /* NetworkScanViewController.swift */,
+				743CA9CB2BB9DFBD009465B3 /* DeviceListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -123,6 +156,8 @@
 		743CA9A42BB9D090009465B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				743CA9D12BB9E04B009465B3 /* NavigationBarView.swift */,
+				743CA9CD2BB9E001009465B3 /* CurrentWiFiView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,6 +165,8 @@
 		743CA9A52BB9D094009465B3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				743CA9C32BB9DD7F009465B3 /* Components */,
+				743CA9C22BB9DD78009465B3 /* Extensions */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -145,6 +182,7 @@
 		743CA9A92BB9D121009465B3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				743CA9DE2BB9F388009465B3 /* MainViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -175,6 +213,42 @@
 				743CA9BA2BB9DB14009465B3 /* SF-Pro-Text-Bold.ttf */,
 			);
 			path = SFProText;
+			sourceTree = "<group>";
+		};
+		743CA9BF2BB9DCA8009465B3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				743CA9C02BB9DCCF009465B3 /* DoubleTapPreventer.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		743CA9C22BB9DD78009465B3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				743CA9C42BB9DDAF009465B3 /* UIFont+CustomFonts.swift */,
+				743CA9C62BB9DDC3009465B3 /* UINavigationController+PopGesture.swift */,
+				743CA9DA2BB9ECAA009465B3 /* String+Localized.swift */,
+				743CA9DC2BB9F286009465B3 /* UIButton+Animate.swift */,
+				743CA9E02BBA0B0D009465B3 /* UICollectionViewCell+Animate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		743CA9C32BB9DD7F009465B3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		743CA9D32BB9E0BB009465B3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				743CA9D62BB9E13B009465B3 /* MenuButtonCell.swift */,
+				743CA9D42BB9E128009465B3 /* DeviceCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +336,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				743CA9912BB9CF80009465B3 /* ViewController.swift in Sources */,
+				743CA9CA2BB9DF8C009465B3 /* NetworkScanViewController.swift in Sources */,
+				743CA9D22BB9E04B009465B3 /* NavigationBarView.swift in Sources */,
+				743CA9C52BB9DDAF009465B3 /* UIFont+CustomFonts.swift in Sources */,
+				743CA9912BB9CF80009465B3 /* MainViewController.swift in Sources */,
+				743CA9DB2BB9ECAA009465B3 /* String+Localized.swift in Sources */,
+				743CA9C12BB9DCCF009465B3 /* DoubleTapPreventer.swift in Sources */,
+				743CA9CC2BB9DFBD009465B3 /* DeviceListViewController.swift in Sources */,
+				743CA9CE2BB9E001009465B3 /* CurrentWiFiView.swift in Sources */,
+				743CA9C72BB9DDC3009465B3 /* UINavigationController+PopGesture.swift in Sources */,
+				743CA9D92BB9E390009465B3 /* Assets.swift in Sources */,
+				743CA9DD2BB9F286009465B3 /* UIButton+Animate.swift in Sources */,
+				743CA9D52BB9E128009465B3 /* DeviceCell.swift in Sources */,
+				743CA9D72BB9E13B009465B3 /* MenuButtonCell.swift in Sources */,
+				743CA9E12BBA0B0D009465B3 /* UICollectionViewCell+Animate.swift in Sources */,
 				743CA98D2BB9CF80009465B3 /* AppDelegate.swift in Sources */,
 				743CA98F2BB9CF80009465B3 /* SceneDelegate.swift in Sources */,
+				743CA9DF2BB9F388009465B3 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

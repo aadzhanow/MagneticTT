@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DeviceListViewController.swift
 //  MagneticTT
 //
 //  Created by Alisher on 31.03.2024.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+final class DeviceListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController {
+extension DeviceListViewController {
     private func setupViews() {
         
     }

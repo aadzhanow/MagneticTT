@@ -1,7 +1,61 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-
+    "callToActionLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ready to Scan this network"
+          }
+        }
+      }
+    },
+    "currentWiFiLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Current Wi-Fi"
+          }
+        }
+      }
+    },
+    "resultsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Results"
+          }
+        }
+      }
+    },
+    "scanNetworkTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan current network"
+          }
+        }
+      }
+    },
+    "wifiNamePlaceholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WIFI_Name"
+          }
+        }
+      }
+    }
   },
   "version" : "1.0"
 }
