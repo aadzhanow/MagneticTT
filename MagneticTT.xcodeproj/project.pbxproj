@@ -14,6 +14,13 @@
 		743CA9992BB9CF81009465B3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9982BB9CF81009465B3 /* Base */; };
 		743CA9A82BB9D0F5009465B3 /* UserInterface.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9A72BB9D0F5009465B3 /* UserInterface.xcstrings */; };
 		743CA9AC2BB9D171009465B3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 743CA9AB2BB9D171009465B3 /* SnapKit */; };
+		743CA9AE2BB9D31E009465B3 /* Radar.json in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9AD2BB9D31E009465B3 /* Radar.json */; };
+		743CA9B12BB9D3C8009465B3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 743CA9B02BB9D3C8009465B3 /* Lottie */; };
+		743CA9B62BB9DB0A009465B3 /* SF-Pro-Display-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9B52BB9DB0A009465B3 /* SF-Pro-Display-Semibold.ttf */; };
+		743CA9BB2BB9DB14009465B3 /* SF-Pro-Text-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9B72BB9DB14009465B3 /* SF-Pro-Text-Semibold.ttf */; };
+		743CA9BC2BB9DB14009465B3 /* SF-Pro-Text-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9B82BB9DB14009465B3 /* SF-Pro-Text-Medium.ttf */; };
+		743CA9BD2BB9DB14009465B3 /* SF-Pro-Text-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9B92BB9DB14009465B3 /* SF-Pro-Text-Regular.ttf */; };
+		743CA9BE2BB9DB14009465B3 /* SF-Pro-Text-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9BA2BB9DB14009465B3 /* SF-Pro-Text-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +32,12 @@
 		743CA9982BB9CF81009465B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		743CA99A2BB9CF81009465B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		743CA9A72BB9D0F5009465B3 /* UserInterface.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = UserInterface.xcstrings; sourceTree = "<group>"; };
+		743CA9AD2BB9D31E009465B3 /* Radar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Radar.json; sourceTree = "<group>"; };
+		743CA9B52BB9DB0A009465B3 /* SF-Pro-Display-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.ttf"; sourceTree = "<group>"; };
+		743CA9B72BB9DB14009465B3 /* SF-Pro-Text-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.ttf"; sourceTree = "<group>"; };
+		743CA9B82BB9DB14009465B3 /* SF-Pro-Text-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.ttf"; sourceTree = "<group>"; };
+		743CA9B92BB9DB14009465B3 /* SF-Pro-Text-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.ttf"; sourceTree = "<group>"; };
+		743CA9BA2BB9DB14009465B3 /* SF-Pro-Text-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				743CA9AC2BB9D171009465B3 /* SnapKit in Frameworks */,
+				743CA9B12BB9D3C8009465B3 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				743CA9A62BB9D0AF009465B3 /* Animations */,
+				743CA9B22BB9DA3A009465B3 /* Fonts */,
 				743CA9952BB9CF81009465B3 /* Assets.xcassets */,
 				743CA9972BB9CF81009465B3 /* LaunchScreen.storyboard */,
 				743CA9A72BB9D0F5009465B3 /* UserInterface.xcstrings */,
@@ -122,6 +137,7 @@
 		743CA9A62BB9D0AF009465B3 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				743CA9AD2BB9D31E009465B3 /* Radar.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -131,6 +147,34 @@
 			children = (
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		743CA9B22BB9DA3A009465B3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				743CA9B42BB9DA52009465B3 /* SFProText */,
+				743CA9B32BB9DA4E009465B3 /* SFProDisplay */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		743CA9B32BB9DA4E009465B3 /* SFProDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				743CA9B52BB9DB0A009465B3 /* SF-Pro-Display-Semibold.ttf */,
+			);
+			path = SFProDisplay;
+			sourceTree = "<group>";
+		};
+		743CA9B42BB9DA52009465B3 /* SFProText */ = {
+			isa = PBXGroup;
+			children = (
+				743CA9B92BB9DB14009465B3 /* SF-Pro-Text-Regular.ttf */,
+				743CA9B82BB9DB14009465B3 /* SF-Pro-Text-Medium.ttf */,
+				743CA9B72BB9DB14009465B3 /* SF-Pro-Text-Semibold.ttf */,
+				743CA9BA2BB9DB14009465B3 /* SF-Pro-Text-Bold.ttf */,
+			);
+			path = SFProText;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +195,7 @@
 			name = MagneticTT;
 			packageProductDependencies = (
 				743CA9AB2BB9D171009465B3 /* SnapKit */,
+				743CA9B02BB9D3C8009465B3 /* Lottie */,
 			);
 			productName = MagneticTT;
 			productReference = 743CA9892BB9CF80009465B3 /* MagneticTT.app */;
@@ -182,6 +227,7 @@
 			mainGroup = 743CA9802BB9CF80009465B3;
 			packageReferences = (
 				743CA9AA2BB9D171009465B3 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				743CA9AF2BB9D3C8009465B3 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 743CA98A2BB9CF80009465B3 /* Products */;
 			projectDirPath = "";
@@ -197,7 +243,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				743CA9AE2BB9D31E009465B3 /* Radar.json in Resources */,
+				743CA9BB2BB9DB14009465B3 /* SF-Pro-Text-Semibold.ttf in Resources */,
+				743CA9BC2BB9DB14009465B3 /* SF-Pro-Text-Medium.ttf in Resources */,
+				743CA9BE2BB9DB14009465B3 /* SF-Pro-Text-Bold.ttf in Resources */,
+				743CA9BD2BB9DB14009465B3 /* SF-Pro-Text-Regular.ttf in Resources */,
 				743CA9962BB9CF81009465B3 /* Assets.xcassets in Resources */,
+				743CA9B62BB9DB0A009465B3 /* SF-Pro-Display-Semibold.ttf in Resources */,
 				743CA9A82BB9D0F5009465B3 /* UserInterface.xcstrings in Resources */,
 				743CA9992BB9CF81009465B3 /* Base in Resources */,
 			);
@@ -433,6 +485,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		743CA9AF2BB9D3C8009465B3 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -440,6 +500,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 743CA9AA2BB9D171009465B3 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		743CA9B02BB9D3C8009465B3 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 743CA9AF2BB9D3C8009465B3 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

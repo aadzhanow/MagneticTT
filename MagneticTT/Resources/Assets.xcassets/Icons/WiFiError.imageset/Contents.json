@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "WiFiError.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
