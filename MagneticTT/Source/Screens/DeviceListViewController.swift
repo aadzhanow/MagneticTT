@@ -17,6 +17,7 @@ final class DeviceListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        addCustomPopGesture()
         setupViews()
         setupConstraints()
         navBar.titleLabel.text = "resultsTitle".localizedUI
@@ -52,6 +53,16 @@ final class DeviceListViewController: BaseViewController {
     @objc override func leftButtonTapped() {
         guard DoubleTapPreventer.shared.beginAction() else { return }
         
+        navigateToMainScreen()
+    }
+    
+    @objc func handleCustomPopGesture(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        if recognizer.state == .recognized {
+            navigateToMainScreen()
+        }
+    }
+    
+    private func navigateToMainScreen() {
         if let navigationController = navigationController {
             var navigationArray = navigationController.viewControllers
             
@@ -65,6 +76,8 @@ final class DeviceListViewController: BaseViewController {
             }
         }
     }
+    
+    // MARK: - Cell Setup and Tap
     
     private func configureCell(_ cell: DeviceCell, at indexPath: IndexPath) {
         let device = viewModel.deviceList[indexPath.section]
@@ -158,7 +171,7 @@ extension DeviceListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - Setup UI and Button Actions
+// MARK: - Setup UI and Button/Gesture Actions
 
 extension DeviceListViewController {
     private func setupViews() {
@@ -175,5 +188,11 @@ extension DeviceListViewController {
             make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.equalToSuperview()
         }
+    }
+    
+    func addCustomPopGesture() {
+        let gestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleCustomPopGesture(_:)))
+        gestureRecognizer.edges = .left
+        view.addGestureRecognizer(gestureRecognizer)
     }
 }

@@ -60,13 +60,18 @@ final class MainViewController: BaseViewController {
         guard DoubleTapPreventer.shared.beginAction() else { return }
         sender.animateButtonTap()
         print("Scan Current Network Button Tapped!")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
-            guard let self = self else { return }
-            let networkScanVC = NetworkScanViewController()
-            networkScanVC.viewModel = self.viewModel
-            self.navigationController?.pushViewController(networkScanVC, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            self.navigateToScannerScreen()
         }
     }
+    
+    private func navigateToScannerScreen() {
+        let networkScanVC = NetworkScanViewController()
+        networkScanVC.viewModel = self.viewModel
+        navigationController?.pushViewController(networkScanVC, animated: true)
+    }
+    
+    // MARK: - Cell Setup and Tap
     
     private func configureCell(_ cell: MenuButtonCell, at indexPath: IndexPath) {
         let screen = screens[indexPath.row]

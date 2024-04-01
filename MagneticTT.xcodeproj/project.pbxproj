@@ -23,7 +23,6 @@
 		743CA9BE2BB9DB14009465B3 /* SF-Pro-Text-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743CA9BA2BB9DB14009465B3 /* SF-Pro-Text-Bold.ttf */; };
 		743CA9C12BB9DCCF009465B3 /* DoubleTapPreventer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9C02BB9DCCF009465B3 /* DoubleTapPreventer.swift */; };
 		743CA9C52BB9DDAF009465B3 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9C42BB9DDAF009465B3 /* UIFont+CustomFonts.swift */; };
-		743CA9C72BB9DDC3009465B3 /* UINavigationController+PopGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9C62BB9DDC3009465B3 /* UINavigationController+PopGesture.swift */; };
 		743CA9CA2BB9DF8C009465B3 /* NetworkScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9C92BB9DF8C009465B3 /* NetworkScanViewController.swift */; };
 		743CA9CC2BB9DFBD009465B3 /* DeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9CB2BB9DFBD009465B3 /* DeviceListViewController.swift */; };
 		743CA9CE2BB9E001009465B3 /* CurrentWifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9CD2BB9E001009465B3 /* CurrentWifiView.swift */; };
@@ -43,7 +42,6 @@
 		743CA9ED2BBA22B5009465B3 /* DeviceCountOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9EC2BBA22B5009465B3 /* DeviceCountOneView.swift */; };
 		743CA9EF2BBA2DC0009465B3 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9EE2BBA2DC0009465B3 /* SeparatorView.swift */; };
 		743CA9F12BBA3BAE009465B3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9F02BBA3BAE009465B3 /* BaseViewController.swift */; };
-		743CA9F42BBA427A009465B3 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9F32BBA427A009465B3 /* CustomNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +61,6 @@
 		743CA9BA2BB9DB14009465B3 /* SF-Pro-Text-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.ttf"; sourceTree = "<group>"; };
 		743CA9C02BB9DCCF009465B3 /* DoubleTapPreventer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapPreventer.swift; sourceTree = "<group>"; };
 		743CA9C42BB9DDAF009465B3 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
-		743CA9C62BB9DDC3009465B3 /* UINavigationController+PopGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+PopGesture.swift"; sourceTree = "<group>"; };
 		743CA9C92BB9DF8C009465B3 /* NetworkScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkScanViewController.swift; sourceTree = "<group>"; };
 		743CA9CB2BB9DFBD009465B3 /* DeviceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewController.swift; sourceTree = "<group>"; };
 		743CA9CD2BB9E001009465B3 /* CurrentWifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWifiView.swift; sourceTree = "<group>"; };
@@ -83,7 +80,6 @@
 		743CA9EC2BBA22B5009465B3 /* DeviceCountOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCountOneView.swift; sourceTree = "<group>"; };
 		743CA9EE2BBA2DC0009465B3 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		743CA9F02BBA3BAE009465B3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		743CA9F32BBA427A009465B3 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				743CA9C42BB9DDAF009465B3 /* UIFont+CustomFonts.swift */,
-				743CA9C62BB9DDC3009465B3 /* UINavigationController+PopGesture.swift */,
 				743CA9DA2BB9ECAA009465B3 /* String+Localized.swift */,
 				743CA9DC2BB9F286009465B3 /* UIButton+Animate.swift */,
 				743CA9E02BBA0B0D009465B3 /* UICollectionViewCell+Animate.swift */,
@@ -262,7 +257,6 @@
 				743CA9E62BBA186F009465B3 /* TitleTwoLabel.swift */,
 				743CA9EA2BBA1EF9009465B3 /* TitleThreeLabel.swift */,
 				743CA9EE2BBA2DC0009465B3 /* SeparatorView.swift */,
-				743CA9F32BBA427A009465B3 /* CustomNavigationController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -382,8 +376,6 @@
 				743CA9CC2BB9DFBD009465B3 /* DeviceListViewController.swift in Sources */,
 				743CA9EB2BBA1EF9009465B3 /* TitleThreeLabel.swift in Sources */,
 				743CA9CE2BB9E001009465B3 /* CurrentWifiView.swift in Sources */,
-				743CA9C72BB9DDC3009465B3 /* UINavigationController+PopGesture.swift in Sources */,
-				743CA9F42BBA427A009465B3 /* CustomNavigationController.swift in Sources */,
 				743CA9ED2BBA22B5009465B3 /* DeviceCountOneView.swift in Sources */,
 				743CA9D92BB9E390009465B3 /* Assets.swift in Sources */,
 				743CA9DD2BB9F286009465B3 /* UIButton+Animate.swift in Sources */,

@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Lottie
 
-final class NetworkScanViewController: BaseViewController {
+final class NetworkScanViewController: UIViewController {
     var viewModel: MainViewModel!
     
     private let scanningWiFiLabel = TitleTwoLabel(text: "scanningNetTitle".localizedUI)
@@ -54,7 +54,9 @@ final class NetworkScanViewController: BaseViewController {
         viewModel.updateProgress(to: 100) {
             print("Network Scanning Completed!")
             self.deviceCountView.devicesCountLabel.text = String(self.viewModel.deviceList.count)
-            self.navigateToDeviceList()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                self?.navigateToDeviceList()
+            }
         }
     }
     
@@ -64,26 +66,28 @@ final class NetworkScanViewController: BaseViewController {
     }
     
     private func navigateToDeviceList() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) { [weak self] in
-            guard let strongSelf = self else { return }
-            let deviceListVC = DeviceListViewController()
-            deviceListVC.viewModel = strongSelf.viewModel
-            strongSelf.navigationController?.pushViewController(deviceListVC, animated: true)
-        }
+        let deviceListVC = DeviceListViewController()
+        deviceListVC.viewModel = self.viewModel
+        navigationController?.pushViewController(deviceListVC, animated: true)
     }
     
     @objc private func stopButtonTapped(_ sender: UIButton) {
         guard DoubleTapPreventer.shared.beginAction() else { return }
         sender.animateButtonTap()
         print("Stop Button Tapped!")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.viewModel.stopProgressUpdate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            self.navigateToMainScreen()
         }
+    }
+    
+    private func navigateToMainScreen() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
 extension NetworkScanViewController {
     private func setupViews() {
+        view.backgroundColor = .customBackground
         view.addSubview(animationView)
         view.addSubview(percentLabel)
         labelsVStack.addArrangedSubview(scanningWiFiLabel)
@@ -95,7 +99,7 @@ extension NetworkScanViewController {
     
     private func setupConstraints() {
         labelsVStack.snp.makeConstraints { make in
-            make.top.equalTo(navBar.snp.bottom).offset(32)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(74)
             make.leading.trailing.equalToSuperview().inset(20)
         }
         animationView.snp.makeConstraints { make in
