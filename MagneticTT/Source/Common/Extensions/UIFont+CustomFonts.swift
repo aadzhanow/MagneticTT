@@ -24,6 +24,7 @@ enum CustomFontSize: CGFloat {
     case s20
     case s17
     case s15
+    case s13
     
     var size: CGFloat {
         switch self {
@@ -35,6 +36,8 @@ enum CustomFontSize: CGFloat {
             return 17.0
         case .s15:
             return 15.0
+        case .s13:
+            return 13.0
         }
     }
 }

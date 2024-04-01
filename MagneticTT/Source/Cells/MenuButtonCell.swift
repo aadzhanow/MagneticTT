@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MenuButtonCell: UICollectionViewCell {
+final class MenuButtonCell: UICollectionViewCell {
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .customDarkPurple

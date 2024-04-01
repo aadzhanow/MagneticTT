@@ -1,5 +1,5 @@
 //
-//  CurrentWiFiView.swift
+//  CurrentWifiView.swift
 //  MagneticTT
 //
 //  Created by Alisher on 31.03.2024.
@@ -8,52 +8,18 @@
 import UIKit
 import SnapKit
 
-final class CurrentWiFiView: UIView {
+final class CurrentWifiView: UIView {
+    private let currentWiFiLabel = TitleTwoLabel(text: "currentWiFiLabel".localizedUI)
+    private let callToActionLabel = TitleThreeLabel(text: "callToActionLabel".localizedUI)
+    let wiFiNameLabel = TitleOneLabel(text: "WIFI_Name")
+    let scanNetworkButton = CustomButton(title: "scanNetworkTitle".localizedUI)
+    
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .customItemBG
         view.layer.cornerRadius = 8
         view.clipsToBounds = true
         return view
-    }()
-    
-    private let currentWiFiLabel: UILabel = {
-        let label = UILabel()
-        label.text = "currentWiFiLabel".localizedUI
-        label.textColor = .customWhite
-        label.font = .customFont(font: .sfProText, style: .regular, size: .s15)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    let wiFiNameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "WIFI_Name".localizedUI
-        label.textColor = .customMain
-        label.font = .customFont(font: .sfProText, style: .bold, size: .s28)
-        label.textAlignment = .center
-        label.numberOfLines = 1
-        return label
-    }()
-    
-    private let callToActionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "callToActionLabel".localizedUI
-        label.textColor = .customDarkBlue
-        label.font = .customFont(font: .sfProText, style: .regular, size: .s17)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    let scanNetworkButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .customMain
-        button.layer.cornerRadius = 25
-        button.clipsToBounds = true
-        button.setTitle("Scan current network".localizedUI, for: .normal)
-        button.tintColor = .customWhite
-        button.titleLabel?.font = .customFont(font: .sfProDisplay, style: .semiBold, size: .s20)
-        return button
     }()
     
     private let firstContentVStack: UIStackView = {

@@ -14,17 +14,19 @@ struct ScreenType {
 }
 
 final class MainViewController: UIViewController {
+    let viewModel = MainViewModel()
+    
     private let backgroundImage = UIImageView()
     private let navBar = NavigationBarView()
     private let devicesImageView = UIImageView()
-    private let currentWifiView = CurrentWiFiView()
+    private let currentWifiView = CurrentWifiView()
     private var menuCollectionView: UICollectionView!
     
     let screens: [ScreenType] = [
-        ScreenType(icon: Assets.Icon.camera, title: "Infrared Detection"),
-        ScreenType(icon: Assets.Icon.bluetooth, title: "Bluetooth Detection"),
-        ScreenType(icon: Assets.Icon.magnet, title: "Magnetic Detection"),
-        ScreenType(icon: Assets.Icon.bulb, title: "Antispy Tips")
+        ScreenType(icon: Assets.Icon.camera, title: "InfraredTitle".localizedUI),
+        ScreenType(icon: Assets.Icon.bluetooth, title: "bluetoothTitle".localizedUI),
+        ScreenType(icon: Assets.Icon.magnet, title: "magneticTitle".localizedUI),
+        ScreenType(icon: Assets.Icon.bulb, title: "antispyTitle".localizedUI)
     ]
     
     override func viewDidLoad() {
@@ -33,7 +35,7 @@ final class MainViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupButtonActions()
-        setupNavBar()
+        currentWifiView.wiFiNameLabel.text = viewModel.currentWiFiName
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +61,12 @@ final class MainViewController: UIViewController {
         guard DoubleTapPreventer.shared.beginAction() else { return }
         sender.animateButtonTap()
         print("Scan Current Network Button Tapped!")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            guard let self = self else { return }
+            let networkScanVC = NetworkScanViewController()
+            networkScanVC.viewModel = self.viewModel
+            self.navigationController?.pushViewController(networkScanVC, animated: true)
+        }
     }
     
     private func configureCell(_ cell: MenuButtonCell, at indexPath: IndexPath) {
@@ -66,7 +74,7 @@ final class MainViewController: UIViewController {
         cell.iconImageView.image = screen.icon
         cell.titleLabel.text = screen.title
     }
-
+    
     private func handleCellTap(at indexPath: IndexPath) {
     }
 }
@@ -77,7 +85,7 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return screens.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuButtonCellIdentifier", for: indexPath) as? MenuButtonCell else {
             fatalError("Cannot dequeue ButtonCell")
@@ -93,7 +101,6 @@ extension MainViewController: UICollectionViewDelegate {
         if let cell = collectionView.cellForItem(at: indexPath) {
             cell.animateCellTap()
         }
-        let screen = screens[indexPath.item]
         handleCellTap(at: indexPath)
     }
 }
@@ -102,7 +109,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 139, height: 139)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 28
     }
@@ -110,7 +117,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 24
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
     }
@@ -127,6 +134,8 @@ extension MainViewController {
         view.addSubview(devicesImageView)
         view.addSubview(currentWifiView)
         view.addSubview(menuCollectionView)
+        navBar.leftButton.isHidden = true
+        navBar.rightButton.setImage(Assets.Icon.settings, for: .normal)
     }
     
     private func setupConstraints() {
@@ -153,11 +162,6 @@ extension MainViewController {
             make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-    }
-    
-    private func setupNavBar() {
-        navBar.leftButton.isHidden = true
-        navBar.rightButton.setImage(Assets.Icon.settings, for: .normal)
     }
     
     private func setupButtonActions() {

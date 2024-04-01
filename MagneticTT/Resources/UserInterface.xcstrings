@@ -1,6 +1,28 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "antispyTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Antispy Tips"
+          }
+        }
+      }
+    },
+    "bluetoothTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bluetooth Detection"
+          }
+        }
+      }
+    },
     "callToActionLabel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -23,6 +45,28 @@
         }
       }
     },
+    "InfraredTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Infrared Detection"
+          }
+        }
+      }
+    },
+    "magneticTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Magnetic Detection"
+          }
+        }
+      }
+    },
     "resultsTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -41,6 +85,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan current network"
+          }
+        }
+      }
+    },
+    "scanningNetTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanning Your Wi-Fi"
+          }
+        }
+      }
+    },
+    "stopTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop"
           }
         }
       }
