@@ -8,10 +8,9 @@
 import UIKit
 import SnapKit
 
-final class DeviceListViewController: UIViewController {
+final class DeviceListViewController: BaseViewController {
     var viewModel: MainViewModel!
     
-    private let navBar = NavigationBarView()
     private let deviceCountView = DeviceCountTwoView()
     private var deviceListCollectionView: UICollectionView!
     
@@ -20,7 +19,6 @@ final class DeviceListViewController: UIViewController {
         setupCollectionView()
         setupViews()
         setupConstraints()
-        setupButtonActions()
         navBar.titleLabel.text = "resultsTitle".localizedUI
         deviceCountView.devicesCountLabel.text = String(viewModel.deviceList.count)
         deviceCountView.wifiNameLabel.text = viewModel.currentWiFiName
@@ -51,12 +49,12 @@ final class DeviceListViewController: UIViewController {
         deviceListCollectionView.backgroundColor = .clear
     }
     
-    @objc private func backButtonTapped() {
+    @objc override func leftButtonTapped() {
         guard DoubleTapPreventer.shared.beginAction() else { return }
         
         if let navigationController = navigationController {
             var navigationArray = navigationController.viewControllers
-
+            
             if navigationArray.count > 2 {
                 navigationArray.removeLast(2)
                 if let newRootViewController = navigationArray.last {
@@ -69,13 +67,15 @@ final class DeviceListViewController: UIViewController {
     }
     
     private func configureCell(_ cell: DeviceCell, at indexPath: IndexPath) {
-        let device = viewModel.deviceList[indexPath.row]
+        let device = viewModel.deviceList[indexPath.section]
         cell.deviceNameLabel.text = device.name
         cell.ipLabel.text = device.ip
         cell.statusIconImageView.image = device.status ? Assets.Icon.wifiConnected : Assets.Icon.wifiError
     }
     
     private func handleCellTap(at indexPath: IndexPath) {
+        let device = viewModel.deviceList[indexPath.section]
+        print("Tapped on cell: \(device.name)!")
     }
 }
 
@@ -85,7 +85,7 @@ extension DeviceListViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.deviceList.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
@@ -108,7 +108,7 @@ extension DeviceListViewController: UICollectionViewDataSource {
         if indexPath.section == collectionView.numberOfSections - 1 {
             corners.formUnion([.bottomLeft, .bottomRight])
         }
-
+        
         if !corners.isEmpty {
             let path = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: 8, height: 8))
             let mask = CAShapeLayer()
@@ -162,17 +162,10 @@ extension DeviceListViewController: UICollectionViewDelegateFlowLayout {
 
 extension DeviceListViewController {
     private func setupViews() {
-        view.backgroundColor = .customBackground
-        view.addSubview(navBar)
         view.addSubview(deviceCountView)
     }
     
     private func setupConstraints() {
-        navBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.trailing.equalToSuperview().inset(8)
-            make.height.equalTo(42)
-        }
         deviceCountView.snp.makeConstraints { make in
             make.top.equalTo(navBar.snp.bottom).offset(32)
             make.centerX.equalToSuperview()
@@ -182,9 +175,5 @@ extension DeviceListViewController {
             make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.equalToSuperview()
         }
-    }
-    
-    private func setupButtonActions() {
-        navBar.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
     }
 }

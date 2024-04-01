@@ -42,6 +42,7 @@
 		743CA9EB2BBA1EF9009465B3 /* TitleThreeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9EA2BBA1EF9009465B3 /* TitleThreeLabel.swift */; };
 		743CA9ED2BBA22B5009465B3 /* DeviceCountOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9EC2BBA22B5009465B3 /* DeviceCountOneView.swift */; };
 		743CA9EF2BBA2DC0009465B3 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9EE2BBA2DC0009465B3 /* SeparatorView.swift */; };
+		743CA9F12BBA3BAE009465B3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9F02BBA3BAE009465B3 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		743CA9EA2BBA1EF9009465B3 /* TitleThreeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleThreeLabel.swift; sourceTree = "<group>"; };
 		743CA9EC2BBA22B5009465B3 /* DeviceCountOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCountOneView.swift; sourceTree = "<group>"; };
 		743CA9EE2BBA2DC0009465B3 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		743CA9F02BBA3BAE009465B3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				743CA9A42BB9D090009465B3 /* Views */,
 				743CA9A92BB9D121009465B3 /* ViewModels */,
 				743CA9A32BB9D08A009465B3 /* ViewControllers */,
+				743CA9F22BBA3DE4009465B3 /* Screens */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -160,9 +163,7 @@
 		743CA9A32BB9D08A009465B3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				743CA9902BB9CF80009465B3 /* MainViewController.swift */,
-				743CA9C92BB9DF8C009465B3 /* NetworkScanViewController.swift */,
-				743CA9CB2BB9DFBD009465B3 /* DeviceListViewController.swift */,
+				743CA9F02BBA3BAE009465B3 /* BaseViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -272,6 +273,16 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		743CA9F22BBA3DE4009465B3 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				743CA9902BB9CF80009465B3 /* MainViewController.swift */,
+				743CA9C92BB9DF8C009465B3 /* NetworkScanViewController.swift */,
+				743CA9CB2BB9DFBD009465B3 /* DeviceListViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -377,6 +388,7 @@
 				743CA9E12BBA0B0D009465B3 /* UICollectionViewCell+Animate.swift in Sources */,
 				743CA9EF2BBA2DC0009465B3 /* SeparatorView.swift in Sources */,
 				743CA98D2BB9CF80009465B3 /* AppDelegate.swift in Sources */,
+				743CA9F12BBA3BAE009465B3 /* BaseViewController.swift in Sources */,
 				743CA98F2BB9CF80009465B3 /* SceneDelegate.swift in Sources */,
 				743CA9E72BBA186F009465B3 /* TitleTwoLabel.swift in Sources */,
 				743CA9E52BBA17BD009465B3 /* TitleOneLabel.swift in Sources */,

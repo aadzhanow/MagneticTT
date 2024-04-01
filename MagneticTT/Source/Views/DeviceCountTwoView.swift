@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 
 final class DeviceCountTwoView: UIView {
-    let wifiNameLabel = TitleThreeLabel(text: "WIFI_NAME")
-    let devicesCountLabel = TitleOneLabel(text: "5")
-    let devicesLabel = TitleOneLabel(text: "Devices")
+    let wifiNameLabel = TitleThreeLabel(text: "wifiNamePlaceholder".localizedUI)
+    let devicesCountLabel = TitleOneLabel(text: "0")
+    let devicesLabel = TitleOneLabel(text: "devicesTitle".localizedUI)
     
-    var labelsHStack: UIStackView = {
+    private let labelsHStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 8
@@ -21,7 +21,7 @@ final class DeviceCountTwoView: UIView {
         return stackView
     }()
     
-    var labelsVStack: UIStackView = {
+    private let labelsVStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 5

@@ -9,16 +9,15 @@ import UIKit
 import SnapKit
 import Lottie
 
-final class NetworkScanViewController: UIViewController {
+final class NetworkScanViewController: BaseViewController {
     var viewModel: MainViewModel!
     
-    private let navBar = NavigationBarView()
     private let scanningWiFiLabel = TitleTwoLabel(text: "scanningNetTitle".localizedUI)
     private let wiFiNameLabel = TitleOneLabel(text: "WIFI_Name")
     private let stopButton = CustomButton(title: "stopTitle".localizedUI)
     private let deviceCountView = DeviceCountOneView()
     
-    var labelsVStack: UIStackView = {
+    private var labelsVStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 5
@@ -32,7 +31,7 @@ final class NetworkScanViewController: UIViewController {
         return animView
     }()
     
-    var percentLabel: UILabel = {
+    private var percentLabel: UILabel = {
         let label = UILabel()
         label.textColor = .customWhite
         label.text = "0%"
@@ -47,13 +46,14 @@ final class NetworkScanViewController: UIViewController {
         setupButtonActions()
         animationView.play()
         wiFiNameLabel.text = viewModel.currentWiFiName
-
+        
         viewModel.onProgressUpdate = { [weak self] progressText in
             self?.percentLabel.text = progressText
         }
-
-        viewModel.animateCountLabel(to: 100) {
-            print("Animation Completed")
+        
+        viewModel.updateProgress(to: 100) {
+            print("Network Scanning Completed!")
+            self.deviceCountView.devicesCountLabel.text = String(self.viewModel.deviceList.count)
             self.navigateToDeviceList()
         }
     }
@@ -64,14 +64,12 @@ final class NetworkScanViewController: UIViewController {
     }
     
     private func navigateToDeviceList() {
-        let deviceListVC = DeviceListViewController()
-        deviceListVC.viewModel = self.viewModel
-        navigationController?.pushViewController(deviceListVC, animated: true)
-    }
-    
-    @objc private func backButtonTapped() {
-        guard DoubleTapPreventer.shared.beginAction() else { return }
-        navigationController?.popViewController(animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) { [weak self] in
+            guard let strongSelf = self else { return }
+            let deviceListVC = DeviceListViewController()
+            deviceListVC.viewModel = strongSelf.viewModel
+            strongSelf.navigationController?.pushViewController(deviceListVC, animated: true)
+        }
     }
     
     @objc private func stopButtonTapped(_ sender: UIButton) {
@@ -79,15 +77,13 @@ final class NetworkScanViewController: UIViewController {
         sender.animateButtonTap()
         print("Stop Button Tapped!")
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.viewModel.stopAnimation()
+            self.viewModel.stopProgressUpdate()
         }
     }
 }
 
 extension NetworkScanViewController {
     private func setupViews() {
-        view.backgroundColor = .customBackground
-        view.addSubview(navBar)
         view.addSubview(animationView)
         view.addSubview(percentLabel)
         labelsVStack.addArrangedSubview(scanningWiFiLabel)
@@ -98,11 +94,6 @@ extension NetworkScanViewController {
     }
     
     private func setupConstraints() {
-        navBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.trailing.equalToSuperview().inset(8)
-            make.height.equalTo(42)
-        }
         labelsVStack.snp.makeConstraints { make in
             make.top.equalTo(navBar.snp.bottom).offset(32)
             make.leading.trailing.equalToSuperview().inset(20)
@@ -127,7 +118,6 @@ extension NetworkScanViewController {
     }
     
     private func setupButtonActions() {
-        navBar.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         stopButton.addTarget(self, action: #selector(stopButtonTapped), for: .touchUpInside)
     }
 }

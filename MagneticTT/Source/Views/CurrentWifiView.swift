@@ -11,7 +11,7 @@ import SnapKit
 final class CurrentWifiView: UIView {
     private let currentWiFiLabel = TitleTwoLabel(text: "currentWiFiLabel".localizedUI)
     private let callToActionLabel = TitleThreeLabel(text: "callToActionLabel".localizedUI)
-    let wiFiNameLabel = TitleOneLabel(text: "WIFI_Name")
+    let wiFiNameLabel = TitleOneLabel(text: "wifiNamePlaceholder".localizedUI)
     let scanNetworkButton = CustomButton(title: "scanNetworkTitle".localizedUI)
     
     private let containerView: UIView = {

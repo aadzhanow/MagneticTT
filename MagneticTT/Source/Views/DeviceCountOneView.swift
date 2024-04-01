@@ -9,10 +9,10 @@ import UIKit
 import SnapKit
 
 final class DeviceCountOneView: UIView {
-    let devicesCountLabel = TitleOneLabel(text: "5")
-    let devicesLabel = TitleOneLabel(text: "Devices Found...")
+    let devicesCountLabel = TitleOneLabel(text: "0")
+    let devicesLabel = TitleOneLabel(text: "devicesFoundLabel".localizedUI)
     
-    var labelsHStack: UIStackView = {
+    private let labelsHStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 8

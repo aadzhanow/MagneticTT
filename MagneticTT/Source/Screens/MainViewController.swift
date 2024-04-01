@@ -13,16 +13,15 @@ struct ScreenType {
     var title: String
 }
 
-final class MainViewController: UIViewController {
+final class MainViewController: BaseViewController {
     let viewModel = MainViewModel()
     
     private let backgroundImage = UIImageView()
-    private let navBar = NavigationBarView()
     private let devicesImageView = UIImageView()
     private let currentWifiView = CurrentWifiView()
     private var menuCollectionView: UICollectionView!
     
-    let screens: [ScreenType] = [
+    private let screens: [ScreenType] = [
         ScreenType(icon: Assets.Icon.camera, title: "InfraredTitle".localizedUI),
         ScreenType(icon: Assets.Icon.bluetooth, title: "bluetoothTitle".localizedUI),
         ScreenType(icon: Assets.Icon.magnet, title: "magneticTitle".localizedUI),
@@ -76,6 +75,8 @@ final class MainViewController: UIViewController {
     }
     
     private func handleCellTap(at indexPath: IndexPath) {
+        let screen = screens[indexPath.row]
+        print("Tapped on screen: \(screen.title)")
     }
 }
 
@@ -155,7 +156,7 @@ extension MainViewController {
         currentWifiView.snp.makeConstraints { make in
             make.top.equalTo(devicesImageView.snp.bottom).offset(24)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalToSuperview().multipliedBy(0.2346)
+            make.height.equalTo(198)
         }
         menuCollectionView.snp.makeConstraints { make in
             make.top.equalTo(currentWifiView.snp.bottom).offset(20)

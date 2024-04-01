@@ -45,6 +45,28 @@
         }
       }
     },
+    "devicesFoundLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devices Found..."
+          }
+        }
+      }
+    },
+    "devicesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devices"
+          }
+        }
+      }
+    },
     "InfraredTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -117,7 +139,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "WIFI_Name"
+            "value" : "No Network"
           }
         }
       }
