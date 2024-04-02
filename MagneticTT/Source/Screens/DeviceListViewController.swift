@@ -23,6 +23,8 @@ final class DeviceListViewController: BaseViewController {
         tableView.cornerRadius = 12
         tableView.separatorColor = .customDarkBlue
         tableView.separatorInset = .zero
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
         return tableView
     }()
     
