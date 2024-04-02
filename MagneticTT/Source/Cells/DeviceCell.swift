@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class DeviceCell: UICollectionViewCell {
+final class DeviceCell: UITableViewCell {
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .customItemBG
@@ -51,8 +51,8 @@ final class DeviceCell: UICollectionViewCell {
         return imageView
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
         setupConstraints()
     }
@@ -62,13 +62,13 @@ final class DeviceCell: UICollectionViewCell {
     }
     
     private func setupViews() {
-        backgroundColor = .customDarkBlue
-        addSubview(containerView)
-        addSubview(statusIconImageView)
+        backgroundColor = .clear
+        contentView.addSubview(containerView)
+        contentView.addSubview(statusIconImageView)
         labelsVStack.addArrangedSubview(deviceNameLabel)
         labelsVStack.addArrangedSubview(ipLabel)
-        addSubview(labelsVStack)
-        addSubview(chevronRightImageView)
+        contentView.addSubview(labelsVStack)
+        contentView.addSubview(chevronRightImageView)
     }
     
     private func setupConstraints() {

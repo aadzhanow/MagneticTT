@@ -14,9 +14,21 @@ final class DeviceListViewController: BaseViewController {
     private let deviceCountView = DeviceCountTwoView()
     private var deviceListCollectionView: UICollectionView!
     
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.rowHeight = 54
+        tableView.backgroundColor = .clear
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(DeviceCell.self, forCellReuseIdentifier: String(describing: DeviceCell.self))
+        tableView.cornerRadius = 12
+        tableView.separatorColor = .customDarkBlue
+        tableView.separatorInset = .zero
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
         addCustomPopGesture()
         setupViews()
         setupConstraints()
@@ -28,26 +40,6 @@ final class DeviceListViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        deviceListCollectionView.collectionViewLayout.invalidateLayout()
-    }
-    
-    private func setupCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 100, height: 100)
-        deviceListCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        deviceListCollectionView.showsHorizontalScrollIndicator = false
-        deviceListCollectionView.showsVerticalScrollIndicator = false
-        deviceListCollectionView.dataSource = self
-        deviceListCollectionView.delegate = self
-        deviceListCollectionView.register(DeviceCell.self, forCellWithReuseIdentifier: "DeviceCellIdentifier")
-        deviceListCollectionView.register(SeparatorView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "SeparatorView")
-        view.addSubview(deviceListCollectionView)
-        deviceListCollectionView.backgroundColor = .clear
     }
     
     @objc override func leftButtonTapped() {
@@ -77,97 +69,14 @@ final class DeviceListViewController: BaseViewController {
         }
     }
     
-    // MARK: - Cell Setup and Tap
+    // MARK: - Table View Cell Setup
     
     private func configureCell(_ cell: DeviceCell, at indexPath: IndexPath) {
         let device = viewModel.deviceList[indexPath.section]
+        cell.selectionStyle = .none
         cell.deviceNameLabel.text = device.name
         cell.ipLabel.text = device.ip
         cell.statusIconImageView.image = device.status ? Assets.Icon.wifiConnected : Assets.Icon.wifiError
-    }
-    
-    private func handleCellTap(at indexPath: IndexPath) {
-        let device = viewModel.deviceList[indexPath.section]
-        print("Tapped on cell: \(device.name)!")
-    }
-}
-
-// MARK: - Device List Collection View Setup
-
-extension DeviceListViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return viewModel.deviceList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeviceCellIdentifier", for: indexPath) as? DeviceCell else {
-            fatalError("Cannot dequeue ButtonCell")
-        }
-        
-        configureCell(cell, at: indexPath)
-        
-        cell.layer.cornerRadius = 8
-        cell.layer.mask = nil
-        
-        var corners: UIRectCorner = []
-        
-        if indexPath.section == 0 {
-            corners.formUnion([.topLeft, .topRight])
-        }
-        if indexPath.section == collectionView.numberOfSections - 1 {
-            corners.formUnion([.bottomLeft, .bottomRight])
-        }
-        
-        if !corners.isEmpty {
-            let path = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: 8, height: 8))
-            let mask = CAShapeLayer()
-            mask.path = path.cgPath
-            cell.layer.mask = mask
-        }
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionFooter else {
-            return UICollectionReusableView()
-        }
-        
-        let separatorView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SeparatorView", for: indexPath) as! SeparatorView
-        return separatorView
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        if section == collectionView.numberOfSections - 1 {
-            return CGSize.zero
-        } else {
-            return CGSize(width: collectionView.frame.width, height: 1)
-        }
-    }
-}
-
-extension DeviceListViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) {
-            cell.animateCellTap()
-        }
-        handleCellTap(at: indexPath)
-    }
-}
-
-extension DeviceListViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width
-        let height: CGFloat = 54
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
     }
 }
 
@@ -176,6 +85,8 @@ extension DeviceListViewController: UICollectionViewDelegateFlowLayout {
 extension DeviceListViewController {
     private func setupViews() {
         view.addSubview(deviceCountView)
+        view.addSubview(tableView)
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     private func setupConstraints() {
@@ -183,7 +94,7 @@ extension DeviceListViewController {
             make.top.equalTo(navBar.snp.bottom).offset(32)
             make.centerX.equalToSuperview()
         }
-        deviceListCollectionView.snp.makeConstraints { make in
+        tableView.snp.makeConstraints { make in
             make.top.equalTo(deviceCountView.snp.bottom).offset(32)
             make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.equalToSuperview()
@@ -194,5 +105,87 @@ extension DeviceListViewController {
         let gestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleCustomPopGesture(_:)))
         gestureRecognizer.edges = .left
         view.addGestureRecognizer(gestureRecognizer)
+    }
+}
+
+// MARK: - TableView Delegate, TableView Data Source
+
+extension DeviceListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.deviceList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DeviceCell.self), for: indexPath) as? DeviceCell else {
+            fatalError("Unable to dequeue DeviceCell")
+        }
+        
+        if indexPath == tableView.lastCellIndexPath {
+            // Push the separator line out of frame
+            cell.separatorInset = UIEdgeInsets(top: 0, left: tableView.bounds.width + 1, bottom: 0, right: 0)
+        } else {
+            cell.separatorInset = .zero
+        }
+        
+        configureCell(cell, at: indexPath)
+        
+        cell.contentView.layer.cornerRadius = 0
+        cell.contentView.layer.mask = nil
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.clipsToBounds = true
+        
+        let isFirstCell = indexPath.row == 0
+        let isLastCell = indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = cell.bounds
+        
+        let cornerRadius: CGFloat = 12
+        
+        if isFirstCell {
+            let path = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+            maskLayer.path = path.cgPath
+            cell.contentView.layer.mask = maskLayer
+        }
+        
+        if isLastCell {
+            let path = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+            maskLayer.path = path.cgPath
+            cell.contentView.layer.mask = maskLayer
+        }
+    }
+}
+
+
+// MARK: - TableView+CornerRadius
+
+extension UITableView {
+     public var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = true
+        }
+    }
+}
+
+// MARK: - TableView+lastCellIndexPath
+
+extension UITableView {
+    /// Calculates the last cell index path if available
+    var lastCellIndexPath: IndexPath? {
+        for section in (0..<self.numberOfSections).reversed() {
+            let rows = numberOfRows(inSection: section)
+            guard rows > 0 else { continue }
+            return IndexPath(row: rows - 1, section: section)
+        }
+        return nil
     }
 }
