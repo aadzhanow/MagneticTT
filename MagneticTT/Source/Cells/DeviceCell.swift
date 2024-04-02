@@ -61,11 +61,6 @@ final class DeviceCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20))
-    }
-    
     private func setupViews() {
         backgroundColor = .clear
         contentView.addSubview(containerView)

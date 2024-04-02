@@ -83,53 +83,6 @@ final class MainViewController: BaseViewController {
     }
 }
 
-// MARK: - Setup UI and Button Actions
-
-extension MainViewController {
-    private func setupViews() {
-        backgroundImage.image = Assets.Image.mainBackground
-        view.addSubview(backgroundImage)
-        view.addSubview(navBar)
-        devicesImageView.image = Assets.Image.devices
-        view.addSubview(devicesImageView)
-        view.addSubview(currentWifiView)
-        view.addSubview(menuCollectionView)
-        navBar.leftButton.isHidden = true
-        navBar.rightButton.setImage(Assets.Icon.settings, for: .normal)
-    }
-    
-    private func setupConstraints() {
-        backgroundImage.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        navBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.trailing.equalToSuperview().inset(8)
-            make.height.equalTo(42)
-        }
-        devicesImageView.snp.makeConstraints { make in
-            make.top.equalTo(navBar.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview().inset(33)
-            make.height.equalToSuperview().multipliedBy(0.1765)
-        }
-        currentWifiView.snp.makeConstraints { make in
-            make.top.equalTo(devicesImageView.snp.bottom).offset(24)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(198)
-        }
-        menuCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(currentWifiView.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.equalTo(view.safeAreaLayoutGuide)
-        }
-    }
-    
-    private func setupButtonActions() {
-        currentWifiView.scanNetworkButton.addTarget(self, action: #selector(scanNetworkButtonTapped), for: .touchUpInside)
-    }
-}
-
-
 // MARK: - Menu Collection View Setup
 
 extension MainViewController: UICollectionViewDataSource {
@@ -180,5 +133,52 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 24
+    }
+}
+
+
+// MARK: - Setup UI and Button Actions
+
+extension MainViewController {
+    private func setupViews() {
+        backgroundImage.image = Assets.Image.mainBackground
+        view.addSubview(backgroundImage)
+        view.addSubview(navBar)
+        devicesImageView.image = Assets.Image.devices
+        view.addSubview(devicesImageView)
+        view.addSubview(currentWifiView)
+        view.addSubview(menuCollectionView)
+        navBar.leftButton.isHidden = true
+        navBar.rightButton.setImage(Assets.Icon.settings, for: .normal)
+    }
+    
+    private func setupConstraints() {
+        backgroundImage.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        navBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview().inset(8)
+            make.height.equalTo(42)
+        }
+        devicesImageView.snp.makeConstraints { make in
+            make.top.equalTo(navBar.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview().inset(33)
+            make.height.equalToSuperview().multipliedBy(0.1765)
+        }
+        currentWifiView.snp.makeConstraints { make in
+            make.top.equalTo(devicesImageView.snp.bottom).offset(24)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(198)
+        }
+        menuCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(currentWifiView.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+    
+    private func setupButtonActions() {
+        currentWifiView.scanNetworkButton.addTarget(self, action: #selector(scanNetworkButtonTapped), for: .touchUpInside)
     }
 }

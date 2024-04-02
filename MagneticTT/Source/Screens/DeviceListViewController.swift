@@ -95,7 +95,7 @@ extension DeviceListViewController {
         }
         deviceListTableView.snp.makeConstraints { make in
             make.top.equalTo(deviceCountView.snp.bottom).offset(32)
-            make.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.equalToSuperview()
         }
     }
@@ -122,9 +122,9 @@ extension DeviceListViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath == tableView.lastCellIndexPath {
             // Push the separator line out of frame
-            cell.separatorInset = UIEdgeInsets(top: 0, left: tableView.bounds.width + 1, bottom: 20, right: 0)
+            cell.separatorInset = UIEdgeInsets(top: 0, left: tableView.bounds.width + 1, bottom: 0, right: 0)
         } else {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+            cell.separatorInset = .zero
         }
         
         configureCell(cell, at: indexPath)
