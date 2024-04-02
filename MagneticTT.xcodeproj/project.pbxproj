@@ -40,7 +40,6 @@
 		743CA9E92BBA1D92009465B3 /* DeviceCountTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9E82BBA1D92009465B3 /* DeviceCountTwoView.swift */; };
 		743CA9EB2BBA1EF9009465B3 /* TitleThreeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9EA2BBA1EF9009465B3 /* TitleThreeLabel.swift */; };
 		743CA9ED2BBA22B5009465B3 /* DeviceCountOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9EC2BBA22B5009465B3 /* DeviceCountOneView.swift */; };
-		743CA9EF2BBA2DC0009465B3 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9EE2BBA2DC0009465B3 /* SeparatorView.swift */; };
 		743CA9F12BBA3BAE009465B3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CA9F02BBA3BAE009465B3 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +77,6 @@
 		743CA9E82BBA1D92009465B3 /* DeviceCountTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCountTwoView.swift; sourceTree = "<group>"; };
 		743CA9EA2BBA1EF9009465B3 /* TitleThreeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleThreeLabel.swift; sourceTree = "<group>"; };
 		743CA9EC2BBA22B5009465B3 /* DeviceCountOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCountOneView.swift; sourceTree = "<group>"; };
-		743CA9EE2BBA2DC0009465B3 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		743CA9F02BBA3BAE009465B3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -256,7 +254,6 @@
 				743CA9E42BBA17BD009465B3 /* TitleOneLabel.swift */,
 				743CA9E62BBA186F009465B3 /* TitleTwoLabel.swift */,
 				743CA9EA2BBA1EF9009465B3 /* TitleThreeLabel.swift */,
-				743CA9EE2BBA2DC0009465B3 /* SeparatorView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -382,7 +379,6 @@
 				743CA9D52BB9E128009465B3 /* DeviceCell.swift in Sources */,
 				743CA9D72BB9E13B009465B3 /* MenuButtonCell.swift in Sources */,
 				743CA9E12BBA0B0D009465B3 /* UICollectionViewCell+Animate.swift in Sources */,
-				743CA9EF2BBA2DC0009465B3 /* SeparatorView.swift in Sources */,
 				743CA98D2BB9CF80009465B3 /* AppDelegate.swift in Sources */,
 				743CA9F12BBA3BAE009465B3 /* BaseViewController.swift in Sources */,
 				743CA98F2BB9CF80009465B3 /* SceneDelegate.swift in Sources */,

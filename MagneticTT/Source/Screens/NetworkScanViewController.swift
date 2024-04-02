@@ -53,6 +53,8 @@ final class NetworkScanViewController: UIViewController {
         
         viewModel.updateProgress(to: 100) {
             print("Network Scanning Completed!")
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
             self.deviceCountView.devicesCountLabel.text = String(self.viewModel.deviceList.count)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                 self?.navigateToDeviceList()
