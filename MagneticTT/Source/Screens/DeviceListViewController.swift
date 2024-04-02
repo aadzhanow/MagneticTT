@@ -12,9 +12,8 @@ final class DeviceListViewController: BaseViewController {
     var viewModel: MainViewModel!
     
     private let deviceCountView = DeviceCountTwoView()
-    private var deviceListCollectionView: UICollectionView!
     
-    private lazy var tableView: UITableView = {
+    private lazy var deviceListTableView: UITableView = {
         let tableView = UITableView()
         tableView.rowHeight = 54
         tableView.backgroundColor = .clear
@@ -85,8 +84,8 @@ final class DeviceListViewController: BaseViewController {
 extension DeviceListViewController {
     private func setupViews() {
         view.addSubview(deviceCountView)
-        view.addSubview(tableView)
-        tableView.tableFooterView = UIView(frame: .zero)
+        view.addSubview(deviceListTableView)
+        deviceListTableView.tableFooterView = UIView(frame: .zero)
     }
     
     private func setupConstraints() {
@@ -94,7 +93,7 @@ extension DeviceListViewController {
             make.top.equalTo(navBar.snp.bottom).offset(32)
             make.centerX.equalToSuperview()
         }
-        tableView.snp.makeConstraints { make in
+        deviceListTableView.snp.makeConstraints { make in
             make.top.equalTo(deviceCountView.snp.bottom).offset(32)
             make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.equalToSuperview()

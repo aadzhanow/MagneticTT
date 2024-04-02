@@ -19,7 +19,7 @@ final class MainViewController: BaseViewController {
     private let backgroundImage = UIImageView()
     private let devicesImageView = UIImageView()
     private let currentWifiView = CurrentWifiView()
-    private var menuCollectionView: UICollectionView!
+//    private var menuCollectionView: UICollectionView!
     
     private let screens: [ScreenType] = [
         ScreenType(icon: Assets.Icon.camera, title: "InfraredTitle".localizedUI),
@@ -28,9 +28,22 @@ final class MainViewController: BaseViewController {
         ScreenType(icon: Assets.Icon.bulb, title: "antispyTitle".localizedUI)
     ]
     
+    private lazy var menuCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(MenuButtonCell.self, forCellWithReuseIdentifier: "MenuButtonCellIdentifier")
+        return collectionView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
         setupViews()
         setupConstraints()
         setupButtonActions()
@@ -40,20 +53,6 @@ final class MainViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    private func setupCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 100, height: 100)
-        menuCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        menuCollectionView.showsHorizontalScrollIndicator = false
-        menuCollectionView.showsVerticalScrollIndicator = false
-        menuCollectionView.dataSource = self
-        menuCollectionView.delegate = self
-        menuCollectionView.register(MenuButtonCell.self, forCellWithReuseIdentifier: "MenuButtonCellIdentifier")
-        view.addSubview(menuCollectionView)
-        menuCollectionView.backgroundColor = .clear
     }
     
     @objc private func scanNetworkButtonTapped(_ sender: UIButton) {
@@ -113,21 +112,31 @@ extension MainViewController: UICollectionViewDelegate {
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 139, height: 139)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 28
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 24
+        let sectionInsets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+        let padding: CGFloat = 24
+        let insets: CGFloat = sectionInsets.left + sectionInsets.right
+        let availableWidth = collectionView.frame.width - insets - padding
+        let widthPerItem = availableWidth / 2
+
+        let availableHeight = collectionView.frame.height - sectionInsets.top - sectionInsets.bottom - (collectionView.contentInset.top + collectionView.contentInset.bottom) - padding
+        let heightPerItem = availableHeight / 2
+
+        return CGSize(width: widthPerItem, height: heightPerItem)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 24
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 24
+    }
 }
+
 
 // MARK: - Setup UI and Button Actions
 
