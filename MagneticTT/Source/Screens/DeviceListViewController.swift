@@ -72,7 +72,7 @@ final class DeviceListViewController: BaseViewController {
     // MARK: - Table View Cell Setup
     
     private func configureCell(_ cell: DeviceCell, at indexPath: IndexPath) {
-        let device = viewModel.deviceList[indexPath.section]
+        let device = viewModel.deviceList[indexPath.row]
         cell.selectionStyle = .none
         cell.deviceNameLabel.text = device.name
         cell.ipLabel.text = device.ip
