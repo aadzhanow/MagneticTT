@@ -55,17 +55,18 @@ final class MainViewModel {
 
         DispatchQueue.global(qos: .default).async { [weak self] in
             for i in (countStart...countEnd) {
-                if self?.shouldStopAnimation == true {
-                    DispatchQueue.main.async {
-                        self?.completion?()
-                    }
+                guard let self = self else { return }
+                
+                if self.shouldStopAnimation {
                     break
                 }
+                
                 usleep(20000)
-                DispatchQueue.main.async { [weak self] in
-                    self?.onProgressUpdate?("\(i)%")
+                
+                DispatchQueue.main.async {
+                    self.onProgressUpdate?("\(i)%")
                     if i == countEnd {
-                        self?.completion?()
+                        completion()
                     }
                 }
             }

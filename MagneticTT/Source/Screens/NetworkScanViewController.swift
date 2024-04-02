@@ -53,8 +53,7 @@ final class NetworkScanViewController: UIViewController {
         
         viewModel.updateProgress(to: 100) {
             print("Network Scanning Completed!")
-            let generator = UIImpactFeedbackGenerator(style: .light)
-            generator.impactOccurred()
+
             self.deviceCountView.devicesCountLabel.text = String(self.viewModel.deviceList.count)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                 self?.navigateToDeviceList()
@@ -68,6 +67,8 @@ final class NetworkScanViewController: UIViewController {
     }
     
     private func navigateToDeviceList() {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
         let deviceListVC = DeviceListViewController()
         deviceListVC.viewModel = self.viewModel
         navigationController?.pushViewController(deviceListVC, animated: true)
@@ -77,6 +78,7 @@ final class NetworkScanViewController: UIViewController {
         guard DoubleTapPreventer.shared.beginAction() else { return }
         sender.animateButtonTap()
         print("Stop Button Tapped!")
+        viewModel.stopProgressUpdate()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
             self.navigateToMainScreen()
         }
