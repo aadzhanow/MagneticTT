@@ -19,7 +19,6 @@ final class MainViewController: BaseViewController {
     private let backgroundImage = UIImageView()
     private let devicesImageView = UIImageView()
     private let currentWifiView = CurrentWifiView()
-//    private var menuCollectionView: UICollectionView!
     
     private let screens: [ScreenType] = [
         ScreenType(icon: Assets.Icon.camera, title: "InfraredTitle".localizedUI),
